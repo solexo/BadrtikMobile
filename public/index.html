@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok LIVE Chat Reader (Demo)</title>
+
+    <!-- Add the link to your existing style.css file -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('tiktok-6974198_1280.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff; /* Optional: Set text color for better visibility */
+        }
+    <!-- Add a new style block for responsive images -->
+    <style>
+        .miniprofilepicture {
+            max-width: 100%;
+            height: auto;
+        }
+        
+    </style>
+    <style>
+        #connectButton {
+            background-color: #3498db; /* Blue background color */
+            color: #fff; /* White text color */
+            padding: 15px 25px; /* Padding for better appearance */
+            font-size: 24px; /* Larger font size */
+            border: none; /* No border */
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Cursor style on hover */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color and transform */
+        }
+    
+        #connectButton:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+            transform: scale(1.05); /* Scale up on hover for an animated effect */
+        }
+    
+        #connectButton:active {
+            background-color: #2c3e50; /* Darker blue on click */
+        }
+        .containerheader {
+            font-size: 30px; /* You can adjust the value to make the font bigger */
+        }
+    </style>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="connection.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        // Function to play the gift received sound
+        function playGiftSound() {
+            var audio = new Audio('شكرا.m4a');
+            audio.play();
+        }
+
+        $(document).ready(() => {
+            // Add a click event for the connect button
+            $('#connectButton').click(() => {
+                generateOverlay();
+            });
+
+            // Add a click event for the change command button
+            $('#changeCommandButton').click(() => {
+                // Prompt the user for the new command
+                const newCommand = prompt('Enter the new command:');
+                if (newCommand !== null && newCommand.trim() !== '') {
+                    // Change the command dynamically
+                    handleCommandChange(newCommand.trim());
+                }
+            });
+        });
+
+        function generateOverlay() {
+            let username = $('#uniqueIdInput').val();
+            let url = `/obs.html?username=${username}&showLikes=1&showChats=1&showGifts=1&showFollows=1&showJoins=1&bgColor=rgb(24,23,28)&fontColor=rgb(227,229,235)&fontSize=1.3em`;
+
+            if(username) {
+                window.open(url, '_blank');
+            } else {
+                alert("Enter username");
+            }
+        }
+
+        // Function to handle command change
+        function handleCommandChange(newCommand) {
+            // Your logic to handle the dynamic command change
+            console.log(`New command: ${newCommand}`);
+            // You can add more logic here based on the new command
+        }
+    </script>
+</head>
+<body>
+    <div class="inputFields">
+        <p style="font-size: larger;">صاحب البث  <b>@username</b> اكتب اسم:</p>
+        <input type="text" id="uniqueIdInput" style="width: 150px; height: 30px;"> <!-- Adjust the height as needed -->
+        <input type="button" id="connectButton" value="connect">
+    </div>
+<!-- Add the jQuery UI script -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <div class="water-background">
+        <div class="cd-container">
+            <div class="cd" onclick="handleGiftReceived()">
+                <div class="gift-icon"></div>
+            </div>
+        </div>
+    </div>
+
+  
+
+  
+
+    <table class="splitstatetable">
+        <tr>
+            <td>
+                <pre id="stateText"></pre>
+            </td>
+            <td>
+                <div id="roomStats"></div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="splitchattable">
+        <tr>
+            <td>
+                <div class="chatcontainer">
+                    <h3 class="containerheader">اقوى المكبسين</h3>
+                </div>
+            </td>
+            <td>
+                <div class="giftcontainer">
+                    <h3 class="containerheader">الداعمين</h3>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,258 @@
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Dark gray background color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ff4d00; /* Orange handle color with rounded corners */
+    border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff7700; /* Lighter orange on hover */
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    min-width: 100vw;
+    background-color: #121212; /* Dark background for the entire page */
+    color: #fff;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+a {
+    color: #58a6ff;
+}
+
+.head {
+    margin-bottom: 20px;
+}
+
+.subTitle {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff7b00; /* Orange subtitle color */
+}
+
+.usernamelink {
+    color: #e848d5; /* Pink username link color */
+    text-decoration: none;
+}
+
+#roomUserText,
+#roomStats {
+    width: 100%;
+    text-align: right;
+}
+
+#roomStats b {
+    margin-right: 20px;
+}
+
+.splitchattable,
+.splitstatetable {
+    width: 100%;
+}
+
+.containerheader {
+    text-align: center;
+}
+
+.chatcontainer,
+.giftcontainer,
+.eventcontainer {
+    overflow-y: auto;
+    height: calc(95vh - 120px);
+    word-wrap: break-word;
+    margin: 0;
+    padding: 20px;
+}
+
+.giftcontainer,
+.chatcontainer {
+    overflow-y: auto;
+    height: calc(95vh - 120px);
+    word-wrap: break-word;
+    margin: 0;
+    padding: 20px;
+    min-width: 246px;
+    max-width: calc(100vw - 300px);
+    background-color: #1a1a1a; /* Dark gray container background */
+    color: #b3b3b3; /* Light gray font color */
+    font-size: 18px;
+    box-shadow: 0 0 20px rgba(240, 157, 5, 0.7); /* Add box-shadow for the glow effect */
+    transition: box-shadow 0.5s, background-color 0.5s; /* Add transition for a smoother effect */
+    border: 2px solid transparent; /* Initial transparent border */
+    border-image: linear-gradient(to right, #00f0ff, #ff0090); /* Gradient border */
+    border-image-slice: 1; /* Ensure the entire border is covered by the gradient */
+    animation: pulse-border 2s infinite; /* Pulsating animation for the border */
+}
+
+/* Add hover effect for a stronger glow on hover */
+.chatcontainer:hover {
+    animation: pulse-chat 1s infinite; /* Adjust the duration or other properties as needed */
+    box-shadow: 0 0 20px rgb(154, 5, 240), 0 0 40px rgb(0, 225, 255), 0 0 20px rgba(255, 153, 0, 0.7);
+    background-color: #1a1a1a; /* Dark gray container background */
+    border: 2px solid transparent; /* Ensure the border is transparent on hover */
+}
+
+/* Keyframe Animation for Pulse on Hover */
+@keyframes pulse-chat {
+    0% {
+        box-shadow: 0 0 20px rgba(240, 157, 5, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(43, 255, 0, 0.9), 0 0 20px rgba(255, 153, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(240, 157, 5, 0.7);
+    }
+}
+
+/* Keyframe Animation for Pulsating Border */
+@keyframes pulse-border {
+    0% {
+        border-width: 2px;
+    }
+    50% {
+        border-width: 4px;
+    }
+    100% {
+        border-width: 2px;
+    }
+}
+
+/* Add hover effect for a stronger glow on hover */
+.chatcontainer:hover {
+    animation: pulse-chat 1s infinite; /* Adjust the duration or other properties as needed */
+}
+
+
+
+.miniprofilepicture,
+.gifticon {
+    border-radius: 50%;
+    border: 3px solid #e848d5;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+    animation: pulse 2s infinite;
+    max-width: 200px;
+    height: auto;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px rgb(5, 205, 240);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(240, 5, 240, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 20px rgb(240, 158, 5);
+    }
+}
+
+/* Gift Container Styles */
+.giftcontainer {
+    overflow-y: scroll;
+    height: calc(111vh - 240px);
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    animation: pulse 2s infinite;   
+}
+
+@keyframes pulse-gift {
+    0% {
+        box-shadow: 0 0 20px rgb(0, 68, 255);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(43, 255, 0, 0.9), 0 0 20px rgba(255, 153, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(3, 105, 8, 0.507);
+    }
+}
+
+/* Gift Item Styles */
+.giftcontainer > div {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* Thank You Message Styles */
+.thankyou-message {
+    color: #2fb816;
+    margin-top: 5px;
+}
+
+/* Quiz Container Styles */
+.quiz-container {
+    position: absolute;
+    top: 73px;
+    left: 228px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: #000000;
+    overflow: hidden;
+    resize: both;
+    cursor: move;
+}
+
+.quiz-container h2 {
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    cursor: move;
+}
+
+.quiz-content {
+    padding: 10px;
+    color: white;
+    font-size: 50px;
+}
+
+/* Additional Styles for Miniprofile Picture */
+.miniprofilepicture {
+    background: linear-gradient(to right, #c0b409, #ff10eb);
+    transition: background 0.5s;
+}
+
+/* Glow Effects */
+.glow-like-stream {
+    text-shadow: 0 0 5px #78d124, 0 0 10px #28c8d3, 0 0 15px #ff0000;
+}
+
+.glow-like-stream-picture {
+    box-shadow: 0 0 10px #c2f50c, 0 0 20px #0bb5d3, 0 0 30px #ff0000;
+}
+/* Default styles for larger screens */
+.giftcontainer,
+.chatcontainer {
+    width: 75%;
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media only screen and (max-width: 768px) {
+    .giftcontainer,
+    .chatcontainer {
+        width: 100%; /* Set to 100% on smaller screens for a full-width layout */
+    }
+}
